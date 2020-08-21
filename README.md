@@ -23,18 +23,13 @@ Tablet View :
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
-Installation:
+Installation: `npm install`
 
-  `npm install`
+To Run Test Suite: `npm test`
 
-To Run Test Suite:  
- `npm test`
+To Start Server:  `npm start`
 
-To Start Server:
-`npm start`
-
-To Visit Deployed App:
-`https://spacex-program.netlify.app/`
+To Visit Deployed App:  `https://spacex-program.netlify.app/`
 
 ## Approach
 
@@ -45,7 +40,7 @@ To Install Redux :
 
 Created a Reducer at src/Reducer/Reducer.js. This describes how an action transforms the state into the next state.
 
-Creating a Redux store holding the state of SpaceX Programs (src/store.js)
+Creating a Redux store holding the state of SpaceX Programs `src/store.js`
 
 ```js
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
@@ -98,9 +93,9 @@ Created 2 Actions at src/Actions/Actions.js to call Reducer
        {loading: true, flightlist: []}
    ```
 
-   After this fetching data from REST API using javascript fetch() API. Once fetch() returns data calling dispatch to change state dispatch({ type: FLIGHT_LIST_SUCCESS, payload: response });
+   After this fetching data from REST API using javascript `fetch()` API. Once `fetch()` returns data calling dispatch to change state `dispatch({ type: FLIGHT_LIST_SUCCESS, payload: response });`
 
-   During this dispatch - FLIGHT_LIST_SUCCESS, updating state object with data from REST API and initializing filteredflightList and fliter object. Initializing filteredflightList object with data returned from fetch. fliter obeject is to store user selected filter options.
+   During this dispatch - `FLIGHT_LIST_SUCCESS`, updating state object with data from REST API and initializing `filteredflightList` and `fliter` object. Initializing `filteredflightList` object with data returned from fetch. fliter obeject is to store user selected filter options.
 
    ```js
        {
@@ -111,7 +106,7 @@ Created 2 Actions at src/Actions/Actions.js to call Reducer
        }
    ```
 
-   If fetch() fails to return data, dispatch({ type: FLIGHT_LIST_FAILED, payload: e.message }) is called to set error message.
+   If `fetch()` fails to return data, `dispatch({ type: FLIGHT_LIST_FAILED, payload: e.message })` is called to set error message.
 
 2) doflightFilter()
 
@@ -204,11 +199,11 @@ Components :
 
 1. App.js
 
-   Importing useEffect from react - The Effect Hook lets you perform side effects in function components (Similar to componentDidMount and componentDidUpdate in Class Components).
+   Importing `useEffect` from react - The Effect Hook lets you perform side effects in function components (Similar to `componentDidMount` and `componentDidUpdate` in Class Components).
 
-   Importing useSelector and useDispatch from react-redux. useSelector allows you to extract data from the Redux store state, using a selector function. useDispatch allows as to dispatch actions as needed.
+   Importing `useSelector` and `useDispatch` from react-redux. `useSelector` allows you to extract data from the Redux store state, using a selector function. `useDispatch` allows as to dispatch actions as needed.
 
-   once store state loading sets to false, Filter and Flights component starts rendering.
+   once state object's `loading` sets to false, Filter and Flights component starts rendering.
 
    ```js
    import React, { useEffect } from "react";
@@ -257,7 +252,7 @@ Fliter.js
 
     Filter Component Renders hard coded filter values.
 
-    When ever user clicks on fliter options triggering event using onClick() event and calling dispatch action to update state of filteredflightList accordingly.
+    When ever user clicks on fliter options triggering event using onClick() event and calling dispatch action to update state of `filteredflightList` accordingly.
 
 ```js
 import React from "react";
