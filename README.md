@@ -475,8 +475,6 @@ export default Flights;
 
 Lighthouse Score :
 
-![Getting Started](./images/lighthousescore_1.png)
-
 ![Getting Started](./images/lighthousescore_2.png)
 
 ![Getting Started](./images/lighthousescore_3.png)
