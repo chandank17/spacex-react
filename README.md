@@ -128,7 +128,7 @@ Created 2 Actions at src/Actions/Actions.js to call Reducer
 
     Once user selects any filter option, updating filter obejct accordingly. And performing filter on flightlist object using javascript array method.
 
-        ```js
+     ```js
         case FILTER_FLIGHT_LIST:
           const filter = state.filter;
           const filterkey = action.payload.filteraction;
@@ -199,7 +199,7 @@ Created 2 Actions at src/Actions/Actions.js to call Reducer
             filteredflightList: tempFilteredFlights,
           };
 
-          ```
+      ```
 
 Components :
 
