@@ -6,14 +6,23 @@ This application is built using ReactJS, Redux, Html, Sass. Jquery.
 
 Project Screen Shot(s)
 
-Destop View : 
+Destop View :
+
+
 ![Getting Started](./images/destopview.png)
 
+
 Mobile View : 
+
+
 ![Getting Started](./images/mobileview_1.png)
 ![Getting Started](./images/mobileview_2.png)
 
+
+
 Tablet View : 
+
+
 ![Getting Started](./images/tabletview_1.png)
 ![Getting Started](./images/tabletview_2.png)
 
