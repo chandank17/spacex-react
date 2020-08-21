@@ -19,7 +19,7 @@ function App() {
     <div>
       {!loading ? (
         <div>
-          <div className="Heading">SpaceX A Launch Programs</div>
+          <div className="Heading">SpaceX A Launch Programs Server Test</div>
           <div className="Content-div">
             <Filter></Filter>
             <Flights></Flights>
