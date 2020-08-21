@@ -65,7 +65,7 @@ html {
 }
 
 .Filter-Value {
-  padding: 5px;
+  padding: 7px;
   background-color: #d5f5ca;
   text-align: center;
   color: #000;
@@ -93,11 +93,10 @@ html {
 .Filter-Name {
   font-size: 14px;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   border-bottom: 1px solid #cac8c8;
-  margin-bottom: 8px;
   font-weight: 300;
-  margin-top: 5px;
+  margin: 10px;
 }
 
 .Fligt-Img {
@@ -266,5 +265,12 @@ html {
     align-items: center;
     font-size: 16px;
     font-weight: 500;
+  }
+
+  .Filter {
+    display: grid;
+    column-gap: 20px;
+    row-gap: 10px;
+    grid-template-columns: 1fr 1fr;
   }
 }
