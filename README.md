@@ -6,9 +6,14 @@ This application is built using ReactJS, Redux, Html, Sass. Jquery.
 
 Project Screen Shot(s)
 
+Destop View : 
 ![Getting Started](./images/destopview.png)
+
+Mobile View : 
 ![Getting Started](./images/mobileview_1.png)
 ![Getting Started](./images/mobileview_2.png)
+
+Tablet View : 
 ![Getting Started](./images/tabletview_1.png)
 ![Getting Started](./images/tabletview_2.png)
 
@@ -18,20 +23,16 @@ Project Screen Shot(s)
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
 Installation:
-
     `npm install`  
 
 To Run Test Suite:  
-
-   `npm test`  
+    `npm test`  
 
 To Start Server:
-
-   `npm start`  
+    `npm start`  
 
 To Visit Deployed App:
-
-   `https://spacex-program.netlify.app/`
+    `https://spacex-program.netlify.app/`
 
 ## Approach
 
@@ -117,100 +118,100 @@ Created 2 Actions at src/Actions/Actions.js to call Reducer
 
     doflightFilter() is to perform filter based user selection
 
-```js
-    const doflightFilter = (filterValue, filteraction, type) => (dispatch) => {
-    const tempPayload = { filterValue, filteraction, type };
+    ```js
+        const doflightFilter = (filterValue, filteraction, type) => (dispatch) => {
+            const tempPayload = { filterValue, filteraction, type };
 
-    dispatch({ type: FILTER_FLIGHT_LIST, payload: tempPayload });
-    };
-```
+            dispatch({ type: FILTER_FLIGHT_LIST, payload: tempPayload });
+        };
+    ```
 
     Once user selects any filter option, updating filter obejct accordingly. And performing filter on flightlist object using javascript array method.
 
-    ```js
-    case FILTER_FLIGHT_LIST:
-      const filter = state.filter;
-      const filterkey = action.payload.filteraction;
+        ```js
+        case FILTER_FLIGHT_LIST:
+          const filter = state.filter;
+          const filterkey = action.payload.filteraction;
 
-      if (filterkey === "year") {
-        if (action.payload.type === "Add") {
-          if (filter[filterkey]) {
-            filter[filterkey].push(action.payload.filterValue);
-          }
-        } else {
-          if (filter[filterkey]) {
-            const tempfilter_v1 = filter[filterkey].filter((value) => {
-              return value !== action.payload.filterValue;
-            });
-            filter[filterkey] = tempfilter_v1;
-          }
-        }
+          if (filterkey === "year") {
+            if (action.payload.type === "Add") {
+              if (filter[filterkey]) {
+                filter[filterkey].push(action.payload.filterValue);
+              }
+            } else {
+              if (filter[filterkey]) {
+                const tempfilter_v1 = filter[filterkey].filter((value) => {
+                  return value !== action.payload.filterValue;
+                });
+                filter[filterkey] = tempfilter_v1;
+              }
+            }
 
-        filter[filterkey] = [...new Set(filter[filterkey])];
-      } else {
-        filter[filterkey] = action.payload.filterValue;
-      }
-
-      var tempFilteredFlights = [];
-      filter.year.sort();
-
-      filter.year.forEach((value, index) => {
-        const loopFilterdvalues = state.flightlist.filter((v, i) => {
-          return v.launch_year == value;
-        });
-
-        if (loopFilterdvalues.length > 0) {
-          tempFilteredFlights = [...tempFilteredFlights, ...loopFilterdvalues];
-        }
-      });
-
-      if (filter["year"].length === 0) {
-        tempFilteredFlights = state.flightlist;
-      }
-
-      if (filter.launch !== "All") {
-        const loopFilterdvalues = tempFilteredFlights.filter((v, i) => {
-          return v.launch_success === filter.launch;
-        });
-
-        tempFilteredFlights = loopFilterdvalues;
-      }
-
-      if (filter.landing !== "All") {
-        const loopFilterdvalues = tempFilteredFlights.filter((v, i) => {
-          if (filter.landing) {
-            return (
-              v.rocket.first_stage.cores[0].land_success === filter.landing
-            );
+            filter[filterkey] = [...new Set(filter[filterkey])];
           } else {
-            return (
-              v.rocket.first_stage.cores[0].land_success === filter.landing ||
-              v.rocket.first_stage.cores[0].land_success === null
-            );
+            filter[filterkey] = action.payload.filterValue;
           }
-        });
-        tempFilteredFlights = loopFilterdvalues;
-      }
 
-      return {
-        ...state,
-        filter,
-        filteredflightList: tempFilteredFlights,
-      };
+          var tempFilteredFlights = [];
+          filter.year.sort();
 
-      ```
+          filter.year.forEach((value, index) => {
+            const loopFilterdvalues = state.flightlist.filter((v, i) => {
+              return v.launch_year == value;
+            });
+
+            if (loopFilterdvalues.length > 0) {
+              tempFilteredFlights = [...tempFilteredFlights, ...loopFilterdvalues];
+            }
+          });
+
+          if (filter["year"].length === 0) {
+            tempFilteredFlights = state.flightlist;
+          }
+
+          if (filter.launch !== "All") {
+            const loopFilterdvalues = tempFilteredFlights.filter((v, i) => {
+              return v.launch_success === filter.launch;
+            });
+
+            tempFilteredFlights = loopFilterdvalues;
+          }
+
+          if (filter.landing !== "All") {
+            const loopFilterdvalues = tempFilteredFlights.filter((v, i) => {
+              if (filter.landing) {
+                return (
+                  v.rocket.first_stage.cores[0].land_success === filter.landing
+                );
+              } else {
+                return (
+                  v.rocket.first_stage.cores[0].land_success === filter.landing ||
+                  v.rocket.first_stage.cores[0].land_success === null
+                );
+              }
+            });
+            tempFilteredFlights = loopFilterdvalues;
+          }
+
+          return {
+            ...state,
+            filter,
+            filteredflightList: tempFilteredFlights,
+          };
+
+          ```
 
 Components :
 
-    1. App.js 
+1. App.js 
 
-        Importing useEffect from react - The Effect Hook lets you perform side effects in function components (Similar to componentDidMount and componentDidUpdate in Class Components).
-        
-        Importing useSelector and useDispatch from react-redux. useSelector allows you to extract data from the Redux store state, using a selector function. useDispatch allows as to dispatch actions as needed.
+    Importing useEffect from react - The Effect Hook lets you perform side effects in function components (Similar to componentDidMount and componentDidUpdate in       Class Components).
 
-        once store state loading sets to false, Filter and Flights component starts rendering.
+    Importing useSelector and useDispatch from react-redux. useSelector allows you to extract data from the Redux store state, using a selector function.               useDispatch allows as to dispatch actions as needed.
 
+    once store state loading sets to false, Filter and Flights component starts rendering.
 
+    ```js
         import React, { useEffect } from "react";
         import "./style.scss";
         import Filter from "./Components/Filter";
